@@ -1,0 +1,54 @@
+table{
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+
+tr, th ,td{
+    text-align: center;
+    padding: 10px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff; /* white */
+}
+
+tr{
+  background-color: #f9f9f9; 
+  &:hover{
+    background: #f1f1f1;
+  }
+}
+
+.actionButtons{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.actionButtons button:first-child {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actionButtons button:last-child {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover{
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 0px 10px 0px;
+    scale: 1.1;
+}
+button:active{
+    scale: 0.9;
+}
