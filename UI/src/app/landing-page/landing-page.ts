@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EmployeesTable } from '../employees-table/employees-table';
+import { EmployeesTable } from './employees-table/employees-table';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,5 +8,5 @@ import { EmployeesTable } from '../employees-table/employees-table';
   styleUrl: './landing-page.css'
 })
 export class LandingPage {
-
+  title = 'Employee Management System';
 }
