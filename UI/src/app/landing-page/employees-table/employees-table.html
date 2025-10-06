@@ -1,59 +1,43 @@
-<table>
-  <tr>
-    <th>Sr No.</th>
-    <th>Name</th>
-    <th>Department</th>
-    <th>Salary</th>
-    <th>Actions</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>John Doe</td>
-    <td>Web Development</td>
-    <td>$700</td>
-    <td class="actionButtons">
-      <button><i class="fa-solid fa-pen-nib"></i></button>
-      <button><i class="fa-solid fa-trash"></i></button>
-    </td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Jane Smith</td>
-    <td>Design</td>
-    <td>$800</td>
-    <td class="actionButtons">
-      <button><i class="fa-solid fa-pen-nib"></i></button>
-      <button><i class="fa-solid fa-trash"></i></button>
-    </td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Mike Johnson</td>
-    <td>Marketing</td>
-    <td>$900</td>
-    <td class="actionButtons">
-      <button><i class="fa-solid fa-pen-nib"></i></button>
-      <button><i class="fa-solid fa-trash"></i></button>
-    </td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Emily Davis</td>
-    <td>Sales</td>
-    <td>$750</td>
-    <td class="actionButtons">
-      <button><i class="fa-solid fa-pen-nib"></i></button>
-      <button><i class="fa-solid fa-trash"></i></button>
-    </td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Chris Brown</td>
-    <td>Support</td>
-    <td>$650</td>
-    <td class="actionButtons">
-      <button><i class="fa-solid fa-pen-nib"></i></button>
-      <button><i class="fa-solid fa-trash"></i></button>
-    </td>
-  </tr>
-</table>
+<div class="employees-table-wrapper">
+  <ng-container *ngIf="isLoading; else tableContent">
+    <p style="text-align:center; margin-top:10px;">Loading employees...</p>
+  </ng-container>
+
+  <ng-template #tableContent>
+    <ng-container *ngIf="!errorMessage; else errorBlock">
+      <table>
+        <thead>
+          <tr>
+            <th>Sr No.</th>
+            <th>Name</th>
+            <th>Employee Id</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let emp of employees; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.employeeId }}</td>
+            <td>{{ emp.department }}</td>
+            <td>${{ emp.salary }}</td>
+            <td class="actionButtons">
+              <button><i class="fa-solid fa-pen-nib"></i></button>
+              <button><i class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p *ngIf="!employees.length" style="text-align:center; margin-top:10px;">
+        No employees found.
+      </p>
+    </ng-container>
+
+    <ng-template #errorBlock>
+      <p style="color:red; text-align:center;">{{ errorMessage }}</p>
+    </ng-template>
+  </ng-template>
+</div>
