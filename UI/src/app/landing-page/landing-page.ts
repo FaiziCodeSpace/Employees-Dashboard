@@ -7,6 +7,7 @@ import { EmployeesTable } from './employees-table/employees-table';
   templateUrl: './landing-page.html',
   styleUrl: './landing-page.css'
 })
+
 export class LandingPage {
   title = 'Employee Management System';
 }
